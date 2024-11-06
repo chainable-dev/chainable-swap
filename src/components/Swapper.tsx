@@ -1,112 +1,54 @@
-'use client';
+import {
+  Swap,
+  SwapAmountInput,
+  SwapToggleButton,
+  SwapButton,
+  SwapMessage,
+  SwapToast,
+} from '@coinbase/onchainkit/swap';
+import type { Token } from '@coinbase/onchainkit/token';
 
-import { useState } from 'react';
+export default function SwapModal() {
+  const ETHToken: Token = {
+    address: "",
+    chainId: 8453,
+    decimals: 18,
+    name: "Ethereum",
+    symbol: "ETH",
+    image: "https://dynamic-assets.coinbase.com/dbb4b4983bde81309ddab83eb598358eb44375b930b94687ebe38bc22e52c3b2125258ffb8477a5ef22e33d6bd72e32a506c391caa13af64c00e46613c3e5806/asset_icons/4113b082d21cc5fab17fc8f2d19fb996165bcce635e6900f7fc2d57c4ef33ae9.png",
+  };
 
-interface Token {
-  symbol: string;
-  name: string;
-  logoURI?: string;
-}
+  const USDCToken: Token = {
+    address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    chainId: 8453,
+    decimals: 6,
+    name: "USDC",
+    symbol: "USDC",
+    image: "https://dynamic-assets.coinbase.com/3c15df5e2ac7d4abbe9499ed9335041f00c620f28e8de2f93474a9f432058742cdf4674bd43f309e69778a26969372310135be97eb183d91c492154176d455b8/asset_icons/9d67b728b6c8f457717154b3a35f9ddc702eae7e76c4684ee39302c4d7fd0bb8.png",
+  };
 
-const ETH: Token = {
-  symbol: "ETH",
-  name: "Ethereum",
-  logoURI: "https://assets.coingecko.com/coins/images/279/small/ethereum.png"
-};
-
-const USDC: Token = {
-  symbol: "USDC",
-  name: "USD Coin",
-  logoURI: "https://assets.coingecko.com/coins/images/6319/small/USD_Coin_icon.png"
-};
-
-export default function Swapper() {
-  const [fromToken, setFromToken] = useState<Token>(ETH);
-  const [toToken, setToToken] = useState<Token>(USDC);
+  const swappableTokens: Token[] = [ETHToken, USDCToken];
 
   return (
-    <div className="w-[450px] max-w-full rounded-xl bg-[#240750] p-6 shadow-lg">
-      {/* Header */}
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold text-[#57A6A1]">Swap</h2>
-      </div>
-
-      {/* From Token */}
-      <div className="mb-2 rounded-lg bg-[#344C64]/20 p-4">
-        <div className="mb-2 text-sm text-[#577B8D]">You pay</div>
-        <div className="flex items-center justify-between">
-          <input
-            type="text"
-            placeholder="0.0"
-            className="w-full bg-transparent text-3xl text-[#57A6A1] outline-none placeholder:text-[#577B8D]/50"
-          />
-          <button
-            className="flex items-center gap-2 rounded-lg bg-[#344C64]/20 px-3 py-2 text-[#57A6A1] hover:bg-[#344C64]/30"
-          >
-            {fromToken.logoURI && (
-              <img
-                src={fromToken.logoURI}
-                alt={fromToken.symbol}
-                className="h-5 w-5 rounded-full"
-              />
-            )}
-            <span>{fromToken.symbol}</span>
-            <span className="text-[#577B8D]">▼</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Swap Direction Button */}
-      <div className="relative my-2 flex justify-center">
-        <button
-          className="absolute -translate-y-1/2 rounded-lg bg-[#344C64]/20 p-2 text-[#57A6A1] hover:bg-[#344C64]/30"
-          onClick={() => {
-            const temp = fromToken;
-            setFromToken(toToken);
-            setToToken(temp);
-          }}
-        >
-          ↓
-        </button>
-      </div>
-
-      {/* To Token */}
-      <div className="mb-6 rounded-lg bg-[#344C64]/20 p-4">
-        <div className="mb-2 text-sm text-[#577B8D]">You receive</div>
-        <div className="flex items-center justify-between">
-          <input
-            type="text"
-            placeholder="0.0"
-            className="w-full bg-transparent text-3xl text-[#57A6A1] outline-none placeholder:text-[#577B8D]/50"
-          />
-          <button
-            className="flex items-center gap-2 rounded-lg bg-[#344C64]/20 px-3 py-2 text-[#57A6A1] hover:bg-[#344C64]/30"
-          >
-            {toToken.logoURI && (
-              <img
-                src={toToken.logoURI}
-                alt={toToken.symbol}
-                className="h-5 w-5 rounded-full"
-              />
-            )}
-            <span>{toToken.symbol}</span>
-            <span className="text-[#577B8D]">▼</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Swap Button */}
-      <button
-        className="w-full rounded-lg bg-[#577B8D] py-4 text-lg font-medium text-[#240750] hover:bg-[#577B8D]/90 disabled:opacity-50"
-        disabled={false}
-      >
-        Swap
-      </button>
-
-      {/* Help Text */}
-      <div className="mt-4 text-center text-sm text-[#577B8D]">
-        Complete the fields to continue
-      </div>
+    <div className="flex flex-col gap-4">
+      <Swap>
+        <SwapAmountInput
+          label="You pay"
+          swappableTokens={swappableTokens}
+          token={ETHToken}
+          type="from"
+        />
+        <SwapToggleButton />
+        <SwapAmountInput
+          label="You receive"
+          swappableTokens={swappableTokens}
+          token={USDCToken}
+          type="to"
+        />
+        <SwapButton />
+        <SwapMessage />
+        <SwapToast />
+      </Swap>
     </div>
   );
 }

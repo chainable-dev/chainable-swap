@@ -1,33 +1,35 @@
 'use client';
 import Footer from 'src/components/Footer';
 import Swapper from 'src/components/Swapper';
-import LoginButton from '../components/LoginButton';
-import SignupButton from '../components/SignupButton';
 import { CHAINABLE_LINK } from 'src/constants/links';
+import LoginButton from '../components/LoginButton';
 
-export default function Page() {
+export default function Home() {
   return (
-    <div className="flex h-full w-96 max-w-full flex-col px-1 md:w-[1008px]">
-      <section className="mt-6 mb-6 flex w-full flex-col md:flex-row">
-        <div className="flex w-full flex-row items-center justify-between gap-2 md:gap-0">
-          <a
-            href={CHAINABLE_LINK}
-            title="Chainable"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span className="text-primary-accent">Chainable</span>
-          </a>
-          <div className="flex items-center gap-3">
-            <SignupButton />
-            <LoginButton />
-          </div>
+    <main className="flex min-h-screen flex-col bg-[var(--background)]">
+      {/* Top Navigation Bar */}
+      <nav className="flex justify-between items-center px-6 py-4 border-b border-[var(--border-color)]">
+        <a 
+          href={CHAINABLE_LINK} 
+          className="relative group"
+        >
+          <span className="text-white text-2xl font-semibold tracking-tight relative z-10">
+            Chainable
+          </span>
+          <div className="absolute inset-0 blur-[8px] bg-white/20 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </a>
+        <LoginButton />
+      </nav>
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col items-center justify-center p-4">
+        <div className="container max-w-[480px] mx-auto">
+          <Swapper />
         </div>
-      </section>
-      <section className="templateSection flex w-full flex-col items-center justify-center gap-4 rounded-xl bg-gray-100 px-2 py-4 md:grow">
-        <Swapper />
-      </section>
+      </div>
+
+      {/* Footer */}
       <Footer />
-    </div>
+    </main>
   );
 }

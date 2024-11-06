@@ -1,32 +1,23 @@
 import type { Metadata } from 'next';
-import { NEXT_PUBLIC_URL } from '../config';
-
+import { Inter } from 'next/font/google';
 import './global.css';
 import '@coinbase/onchainkit/styles.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import OnchainProvidersWrapper from 'src/components/OnchainProvidersWrapper';
 
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1.0,
-};
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Onchain App Template',
-  description: 'Built with OnchainKit',
-  openGraph: {
-    title: 'Onchain App Template',
-    description: 'Built with OnchainKit',
-    images: [`${NEXT_PUBLIC_URL}/vibes/vibes-19.png`],
-  },
+  title: 'Chainable',
+  description: 'Swap tokens on Base',
 };
 
 export default function RootLayout({
   children,
 }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="flex items-center justify-center">
+    <html lang="en" className="dark">
+      <body className={`${inter.className} bg-background min-h-screen`}>
         <OnchainProvidersWrapper>{children}</OnchainProvidersWrapper>
       </body>
     </html>
