@@ -16,6 +16,7 @@ export function Header() {
       <div className="flex items-center gap-4">
         <ChainSelector 
           selectedChain={selectedChain}
+          //@ts-ignore
           onChainSelect={setSelectedChain}
         />
         <WalletWrapper />

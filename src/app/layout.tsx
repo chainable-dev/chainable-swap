@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import './global.css';
 import '@coinbase/onchainkit/styles.css';
 import '@rainbow-me/rainbowkit/styles.css';
-import OnchainProvidersWrapper from 'src/components/OnchainProvidersWrapper';
+import OnchainProviders from 'src/components/OnchainProviders';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} bg-background min-h-screen`}>
-        <OnchainProvidersWrapper>{children}</OnchainProvidersWrapper>
+        <OnchainProviders>{children}</OnchainProviders>
       </body>
     </html>
   );
