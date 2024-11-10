@@ -10,6 +10,10 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Chainable',
   description: 'Swap tokens on Base',
+  icons: {
+    icon: '/logo-swap.svg',
+    shortcut: '/logo-swap.svg',
+  },
 };
 
 export default function RootLayout({
