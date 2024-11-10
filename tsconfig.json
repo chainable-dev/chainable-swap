@@ -26,7 +26,8 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["@testing-library/jest-dom"]
+    "types": ["@testing-library/jest-dom"],
+    "typeRoots": ["./types", "./node_modules/@types"],
   },
   "include": [
     "next-env.d.ts",
