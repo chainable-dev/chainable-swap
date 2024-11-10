@@ -32,7 +32,7 @@
     "react-dom": "^18",
     "siwe": "^2.3.2",
     "tailwind-merge": "^2.5.4",
-    "viem": "^2.0.0",
+    "viem": "^2.21.44",
     "wagmi": "^2.0.0"
   },
   "devDependencies": {
