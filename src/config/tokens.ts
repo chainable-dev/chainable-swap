@@ -7,7 +7,7 @@ export const CHAIN_IDS = {
   ETHEREUM: 1,
 } as const
 
-// Base Mainnet Tokens - Verified and Active
+// Base Mainnet Tokens - Only keeping tokens with verified images
 export const BASE_TOKENS: Token[] = [
   {
     address: "", // Native ETH
@@ -34,14 +34,6 @@ export const BASE_TOKENS: Token[] = [
     image: "https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png",
   },
   {
-    address: "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
-    chainId: CHAIN_IDS.BASE,
-    decimals: 6,
-    name: "USD Base Coin",
-    symbol: "USDbC",
-    image: "https://assets.coingecko.com/coins/images/31112/large/usdb.png",
-  },
-  {
     address: "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
     chainId: CHAIN_IDS.BASE,
     decimals: 18,
@@ -56,18 +48,10 @@ export const BASE_TOKENS: Token[] = [
     name: "DAI",
     symbol: "DAI",
     image: "https://assets.coingecko.com/coins/images/9956/large/Badge_Dai.png",
-  },
-  {
-    address: "0x27D2DECb4bFC9C76F0309b8E88dec3a601Fe25a8",
-    chainId: CHAIN_IDS.BASE,
-    decimals: 18,
-    name: "Aerodrome",
-    symbol: "AERO",
-    image: "https://assets.coingecko.com/coins/images/31745/large/token-logo.png",
   }
 ]
 
-// Optimism Mainnet Tokens - Verified and Active
+// Optimism Mainnet Tokens - Only keeping tokens with verified images
 export const OPTIMISM_TOKENS: Token[] = [
   {
     address: "", // Native ETH
@@ -119,7 +103,7 @@ export const OPTIMISM_TOKENS: Token[] = [
   }
 ]
 
-// Arbitrum Mainnet Tokens - Verified and Active
+// Arbitrum Mainnet Tokens - Only keeping tokens with verified images
 export const ARBITRUM_TOKENS: Token[] = [
   {
     address: "", // Native ETH
@@ -179,7 +163,7 @@ export const ARBITRUM_TOKENS: Token[] = [
   }
 ]
 
-// Ethereum Mainnet Tokens - Most liquid and verified
+// Ethereum Mainnet Tokens - Only keeping tokens with verified images
 export const ETHEREUM_TOKENS: Token[] = [
   {
     address: "", // Native ETH
