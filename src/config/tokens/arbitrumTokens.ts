@@ -1,6 +1,14 @@
-import type { TokenConfig } from '@/types/types';
+import type { TokenConfig } from '../../types/types';
 
 export const arbitrumTokens: TokenConfig[] = [
+  {
+    address: '0x0000000000000000000000000000000000000000',
+    decimals: 18,
+    name: 'Ethereum',
+    symbol: 'ETH',
+    logoURI: '/token-icons/eth.png',
+    verified: true,
+  },
   {
     name: 'Wrapped Ether',
     symbol: 'WETH',

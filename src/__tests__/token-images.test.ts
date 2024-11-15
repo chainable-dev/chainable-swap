@@ -4,7 +4,7 @@ import {
   baseTokens, 
   mainnetTokens,
   optimismTokens 
-} from '@/config/tokens/index'
+} from '@/config/tokens' // Updated import path to remove '/index'
 
 describe('Token Images', () => {
   // Helper function to validate token config
