@@ -27,11 +27,11 @@ export const getTokensByChain = (chainId: number): TokenConfig[] => {
     case CHAIN_IDS.ARBITRUM:
       return validateTokens(arbitrumTokens);
     default:
-      return [];
+      return validateTokens(baseTokens); // Default to Base tokens
   }
 };
 
-// Export verified tokens for each chain separately
+// Export verified tokens for each chain
 export const VERIFIED_TOKENS = {
   [CHAIN_IDS.MAINNET]: validateTokens(mainnetTokens),
   [CHAIN_IDS.BASE]: validateTokens(baseTokens),
@@ -43,7 +43,7 @@ export const VERIFIED_TOKENS = {
 export const ALL_SUPPORTED_TOKENS = Object.entries(VERIFIED_TOKENS).flatMap(([chainId, tokens]) =>
   tokens.map((token) => ({
     ...token,
-    chainId: Number.parseInt(chainId),
+    chainId: Number(chainId),
   }))
 );
 

@@ -13,3 +13,5 @@ export const CHAIN_IDS = {
   OPTIMISM: 10,
   ARBITRUM: 42161,
 } as const;
+
+export type ChainId = typeof CHAIN_IDS[keyof typeof CHAIN_IDS];

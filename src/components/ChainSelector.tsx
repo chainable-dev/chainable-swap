@@ -9,29 +9,24 @@ import {
   DropdownMenuTrigger,
 } from './ui/dropdown-menu';
 import Image from 'next/image';
-import { base, optimism, arbitrum, mainnet } from 'wagmi/chains';
-import { getTokensForChain } from '@/config/chains';
+import { base, mainnet, optimism, arbitrum } from 'wagmi/chains';
 
 const SUPPORTED_CHAINS = [
   {
     ...base,
-    iconUrl: '/chain-logos/base.svg',
-    tokens: getTokensForChain(base.id)
-  },
-  {
-    ...optimism,
-    iconUrl: '/chain-logos/optimism.svg',
-    tokens: getTokensForChain(optimism.id)
-  },
-  {
-    ...arbitrum,
-    iconUrl: '/chain-logos/arbitrum.svg',
-    tokens: getTokensForChain(arbitrum.id)
+    iconUrl: '/chain-logos/base-logo.svg'
   },
   {
     ...mainnet,
-    iconUrl: '/chain-logos/ethereum.svg',
-    tokens: getTokensForChain(mainnet.id)
+    iconUrl: '/chain-logos/eth.png'
+  },
+  {
+    ...optimism,
+    iconUrl: '/chain-logos/optimism.svg'
+  },
+  {
+    ...arbitrum,
+    iconUrl: '/chain-logos/arb.png'
   }
 ] as const;
 
@@ -67,7 +62,7 @@ export function ChainSelector() {
           <DropdownMenuItem
             key={chain.id}
             className="flex items-center gap-2 cursor-pointer"
-            onClick={() => switchChain?.({ chainId: chain.id })}
+            onClick={() => switchChain({ chainId: chain.id })}
             disabled={chain.id === chainId}
           >
             <div className="relative w-5 h-5">
@@ -79,12 +74,7 @@ export function ChainSelector() {
                 className="object-contain"
               />
             </div>
-            <div className="flex flex-col">
-              <span>{chain.name}</span>
-              <span className="text-xs text-muted-foreground">
-                {chain.tokens.length} tokens available
-              </span>
-            </div>
+            {chain.name}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
