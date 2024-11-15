@@ -1,4 +1,3 @@
-'use client';
 import Footer from '@/components/Footer';
 import { Swapper } from '@/components/Swapper';
 import { CHAINABLE_LINK } from '@/constants/links';
@@ -12,7 +11,6 @@ export default function Home() {
 
       {/* Floating Orbs */}
       <div className="floating-orbs">
-        <div className="orb" />
         <div className="orb" />
         <div className="orb" />
       </div>
