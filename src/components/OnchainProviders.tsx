@@ -4,7 +4,7 @@ import { config } from '@/config/wagmi';
 import { RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider } from 'wagmi';
-
+import { Disclaimer } from './Disclaimer';
 interface Props {
   children: React.ReactNode;
 }
@@ -17,9 +17,14 @@ export function OnchainProviders({ children }: Props) {
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider
+          appInfo={{
+            appName: 'Chainable',
+            disclaimer: Disclaimer,
+          }}
           theme={darkTheme({
             accentColor: '#3EB8B3',
           })}
+
         >
           {children}
         </RainbowKitProvider>

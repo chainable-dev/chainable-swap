@@ -15,7 +15,7 @@ export const TokenIcon = ({ src, alt, size = 48 }: TokenIconProps) => {
 
   return (
     <div className="relative" style={{ width: size, height: size }}>
-      {/* @ts-ignore */}
+      //@ts-ignore
       <Image
         src={error ? '/token-icons/default.png' : src}
         alt={alt}
