@@ -10,7 +10,15 @@ interface Props {
   children: React.ReactNode;
 }
 
-const queryClient = new QueryClient();
+// Create QueryClient instance outside component to prevent recreation
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5000,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export function OnchainProviders({ children }: Props) {
   return (
