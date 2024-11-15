@@ -6,7 +6,6 @@ import {
   SwapMessage,
   SwapToast,
 } from '@coinbase/onchainkit/swap';
-import type { Token } from '@coinbase/onchainkit/token';
 import {useChainId} from "wagmi";
 import {chainConfigs} from "@/config/chains";
 import {getTokensByChain} from "@/config/tokens";

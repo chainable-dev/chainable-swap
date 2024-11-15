@@ -6,10 +6,21 @@ export const baseConfig: ChainConfig = {
   network: 'base',
   rpcUrls: {
     default: {
-      http: ['https://llamarpc.com'],
+      http: [
+        'https://mainnet.base.org',
+        'https://base.llamarpc.com',
+        'https://base.drpc.org'
+      ],
     },
     public: {
-      http: ['https://llamarpc.com'],
+      http: [
+        'https://mainnet.base.org',
+        'https://base.llamarpc.com', 
+        'https://base.drpc.org'
+      ],
     },
+  },
+  blockExplorers: {
+    default: { name: 'BaseScan', url: 'https://basescan.org' },
   },
 };

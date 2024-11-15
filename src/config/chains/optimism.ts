@@ -6,10 +6,21 @@ export const optimismConfig: ChainConfig = {
   network: 'optimism',
   rpcUrls: {
     default: {
-      http: ['https://llamarpc.com'],
+      http: [
+        'https://mainnet.optimism.io',
+        'https://optimism.llamarpc.com',
+        'https://optimism.drpc.org'
+      ],
     },
     public: {
-      http: ['https://llamarpc.com'],
+      http: [
+        'https://mainnet.optimism.io',
+        'https://optimism.llamarpc.com',
+        'https://optimism.drpc.org'
+      ],
     },
+  },
+  blockExplorers: {
+    default: { name: 'OPScan', url: 'https://optimistic.etherscan.io' },
   },
 };

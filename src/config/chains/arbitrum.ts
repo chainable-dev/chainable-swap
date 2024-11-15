@@ -6,10 +6,10 @@ export const arbitrumConfig: ChainConfig = {
   network: 'arbitrum',
   rpcUrls: {
     default: {
-      http: ['https://llamarpc.com'],
+      http: ['https://arbitrum.llamarpc.com'],
     },
     public: {
-      http: ['https://llamarpc.com'],
+      http: ['https://arbitrum.llamarpc.com'],
     },
   },
 };

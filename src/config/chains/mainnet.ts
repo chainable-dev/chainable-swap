@@ -6,10 +6,10 @@ export const mainnetConfig: ChainConfig = {
   network: 'mainnet',
   rpcUrls: {
     default: {
-      http: ['https://llamarpc.com'],
+      http: ['https://base.llamarpc.io'],
     },
     public: {
-      http: ['https://llamarpc.com'],
+      http: ['https://base.llamarpc.com'],
     },
   },
 };
