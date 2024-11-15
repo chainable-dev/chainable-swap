@@ -1,17 +1,16 @@
-export default function BaseSvg() {
+export default function BaseSvg({ className = '' }: { className?: string }) {
   return (
     <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
-      <title>Base SVG</title>
-      <circle cx="10" cy="10" r="10" fill="#0052FF" />
       <path
-        d="M10.0437 16.9488C13.9196 16.9488 17.0616 13.8123 17.0616 9.94315C17.0616 6.07404 13.9196 2.9375 10.0437 2.9375C6.36653 2.9375 3.34989 5.76073 3.05029 9.35427H12.3263V10.532H3.05029C3.34989 14.1256 6.36653 16.9488 10.0437 16.9488Z"
-        fill="white"
+        d="M12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0ZM16.5657 8.97257L12.0001 6.33526L7.43457 8.97258V14.2472L12.0001 16.8845L16.5657 14.2472V8.97257ZM12.0001 5L18.0001 8.30554V14.9161L12.0001 18.2217L6.00014 14.9161V8.30554L12.0001 5Z"
+        fill="currentColor"
       />
     </svg>
   );

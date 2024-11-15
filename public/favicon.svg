@@ -1,10 +1,9 @@
-<svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Optimized grid pattern for tab visibility -->
   <path
-    d="M20 20 L40 20 L40 40 L60 40 L60 20 L80 20 L80 40 L60 40 L60 60 L80 60 L80 80 L60 80 L60 60 L40 60 L40 80 L20 80 L20 60 L40 60 L40 40 L20 40 Z"
-    stroke="#3EB8B3"
-    stroke-width="4"
-    fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    d="M6 6h6v6h-6zM20 6h6v6h-6zM13 13h6v6h-6zM6 20h6v6h-6zM20 20h6v6h-6z"
+    fill="#00D2C8"
+    stroke="#00D2C8"
+    stroke-width="1"
   />
 </svg> 

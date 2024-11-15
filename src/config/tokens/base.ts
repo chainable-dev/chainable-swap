@@ -149,14 +149,6 @@ export const baseTokens: Token[] = [
     image: 'https://assets.coingecko.com/coins/images/3406/small/SNX.png',
   },
   {
-    address: "0x4E352cF164E64ADCBad318C3a1e222E9EBa4Ce42" as const,
-    chainId: BASE_CHAIN_ID,
-    decimals: 18,
-    name: 'MCDEX Token',
-    symbol: 'MCB',
-    image: 'https://assets.coingecko.com/coins/images/12557/small/mcb.png',
-  },
-  {
     address: "0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9" as const,
     chainId: BASE_CHAIN_ID,
     decimals: 18,
