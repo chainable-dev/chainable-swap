@@ -1,12 +1,18 @@
 'use client';
 
+import Link from 'next/link';
 
 export function Footer() {
-  return (
-    <footer className="flex items-center justify-center w-full p-4 text-sm text-gray-500">
-      <span className="flex items-center gap-1">
-        Powered by Chainable
-      </span>
-    </footer>
-  );
+    return (
+        <footer className="w-full py-4 text-center bg-gray-800 text-white">
+            <div className="mb-2">
+
+                <Link href="https://chainable.co" target="_blank" rel="noopener noreferrer">
+                    Powered by Chainable
+                </Link>
+            </div>
+        </footer>
+    );
 }
+
+export default Footer;
