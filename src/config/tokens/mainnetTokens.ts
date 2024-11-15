@@ -3,7 +3,6 @@ import type { TokenConfig } from '../../types/types';
 export const mainnetTokens: TokenConfig[] = [
   {
     address: '0x0000000000000000000000000000000000000000',
-    chainId: 1,
     decimals: 18,
     name: 'Ethereum',
     symbol: 'ETH',
