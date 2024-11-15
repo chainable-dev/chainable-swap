@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useAccount, useChainId, useSignTypedData, useSendTransaction, useBalance, useSwitchNetwork } from 'wagmi';
+import { useAccount, useChainId, useSignTypedData, useSendTransaction, useBalance } from 'wagmi';
 import { formatUnits, parseUnits } from 'viem';
+import { ChainSelector } from './ChainSelector';
 import { Button } from './ui/button';
 import { TokenSelector } from './TokenSelector';
 import { Input } from './ui/input';
@@ -199,7 +200,7 @@ export function Swapper() {
                   key={supportedChain.id}
                   variant="outline"
                   className="flex items-center gap-2"
-                  onClick={() => switchNetwork?.(supportedChain.id)}
+                  onClick={() => ChainSelector()} 
                 >
                   <Image
                     src={supportedChain.logoUrl}
@@ -344,7 +345,16 @@ export function Swapper() {
         <Button 
           className="w-full h-14 text-lg font-medium bg-[#131A2A] hover:bg-[#1B2436] text-white rounded-2xl"
           disabled={!payAmount || payAmount === '0.0' || isLoading}
-          onClick={() => {}}
+          onClick={() => {
+            if (quoteData) {
+              // Implement the swap transaction logic here
+              sendTransaction({
+                to: quoteData.to,
+                data: quoteData.data,
+                value: quoteData.value,
+              });
+            }
+          }}
         >
           {isLoading ? 'Getting Best Price...' : 'Swap'}
         </Button>
