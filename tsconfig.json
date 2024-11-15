@@ -23,9 +23,7 @@
     },
     "types": [
       "node",
-      "jest",
-      "vitest/globals",
-      "@testing-library/jest-dom"
+      "vitest/globals"
     ]
   },
   "include": [

@@ -14,10 +14,10 @@
     "lint:fix": "biome check --fix --unsafe .",
     "lint:unsafe": "biome lint --write --unsafe .",
     "start": "next start",
-    "test": "vitest --setupFiles ./vitest.setup.ts",
-    "test:coverage": "vitest run --coverage --setupFiles ./vitest.setup.ts",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "test:images": "vitest run src/__tests__/token-images.test.ts",
-    "test:watch": "vitest watch --setupFiles ./vitest.setup.ts",
+    "test:watch": "vitest watch",
     "download-icons": "ts-node --project scripts/tsconfig.json scripts/download-token-icons.ts"
   },
   "dependencies": {
