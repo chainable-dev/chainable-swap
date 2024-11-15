@@ -37,6 +37,6 @@
     "lineWidth": 100
   },
   "javascript": {
-    "globals": ["React"]
+    "globals": ["React", "Testing"]
   }
 }
