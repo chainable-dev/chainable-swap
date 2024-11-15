@@ -25,6 +25,7 @@ export function OnchainProviders({ children }: Props) {
           theme={darkTheme({
             accentColor: '#3EB8B3',
           })}
+          showRecentTransactions={true}
         >
           {children}
         </RainbowKitProvider>
