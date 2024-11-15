@@ -1,19 +1,23 @@
-export * from './types';
-export * from './mainnet';
-export * from './base';
-export * from './optimism';
-export * from './arbitrum';
+import { base } from 'viem/chains'
+import type { Chain } from 'viem'
 
-import { arbitrumConfig } from './arbitrum';
-import { baseConfig } from './base';
-import { mainnetConfig } from './mainnet';
-import { optimismConfig } from './optimism';
-
-export const chains = [mainnetConfig, baseConfig, optimismConfig, arbitrumConfig] as const;
+export interface ChainConfig extends Chain {
+  network: string
+}
 
 export const chainConfigs = {
-  [mainnetConfig.id]: mainnetConfig,
-  [baseConfig.id]: baseConfig,
-  [optimismConfig.id]: optimismConfig,
-  [arbitrumConfig.id]: arbitrumConfig,
-} as const;
+  [base.id]: {
+    ...base,
+    network: 'base',
+    rpcUrls: {
+      default: {
+        http: ['https://mainnet.base.org'],
+      },
+      public: {
+        http: ['https://mainnet.base.org'],
+      },
+    },
+  },
+} as const
+
+export const BASE_CHAIN_ID = base.id

@@ -1,7 +1,6 @@
 'use client';
-import Footer from 'src/components/Footer';
-import Swapper from 'src/components/Swapper';
-import { CHAINABLE_LINK } from 'src/constants/links';
+import SwapModal from '../components/Swapper';
+import { Footer } from '../components/Footer';
 import LoginButton from '../components/LoginButton';
 
 export default function Home() {
@@ -10,7 +9,7 @@ export default function Home() {
       {/* Top Navigation Bar */}
       <nav className="flex justify-between items-center px-6 py-4 border-b border-[var(--border-color)]">
         <a 
-          href={CHAINABLE_LINK} 
+          href="https://chainable.co" 
           className="relative group"
         >
           <span className="text-white text-2xl font-semibold tracking-tight relative z-10">
@@ -24,7 +23,7 @@ export default function Home() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col items-center justify-center p-4">
         <div className="container max-w-[480px] mx-auto">
-          <Swapper />
+          <SwapModal />
         </div>
       </div>
 

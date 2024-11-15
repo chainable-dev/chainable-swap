@@ -1,24 +1,12 @@
 'use client';
 
-import { CHAINABLE_LINK } from 'src/constants/links';
 
-export default function Footer() {
+export function Footer() {
   return (
-    <section className="mt-auto mb-2 flex w-full flex-col justify-between gap-2 md:mt-8 md:mb-6">
-      <aside className="flex items-center pt-2 md:pt-0">
-        <h3 className="mr-2 mb-2 text-m md:mb-0">
-          Built with love by{' '}
-          <a
-            href={CHAINABLE_LINK}
-            target="_blank"
-            rel="noreferrer"
-            title="Chainable"
-            className="font-semibold hover:text-indigo-600"
-          >
-            Chainable
-          </a>
-        </h3>
-      </aside>
-    </section>
+    <footer className="flex items-center justify-center w-full p-4 text-sm text-gray-500">
+      <span className="flex items-center gap-1">
+        Powered by <img src="/chainable-logo.png" alt="Chainable Logo" className="w-4 h-4" />
+      </span>
+    </footer>
   );
 }

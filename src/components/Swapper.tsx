@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Swap,
   SwapAmountInput,
@@ -5,28 +7,23 @@ import {
   SwapButton,
   SwapMessage,
   SwapToast,
-} from '@coinbase/onchainkit/swap';
-import type { Token } from '@coinbase/onchainkit/token';
-import {useChainId} from "wagmi";
-import {chainConfigs} from "@/config/chains";
-import {getTokensByChain} from "@/config/tokens";
+} from '@coinbase/onchainkit/swap'
+import type { Token } from '@coinbase/onchainkit/token'
+import { useChainId } from 'wagmi'
+import { baseTokens } from '@/config/tokens/base'
+import { useState } from 'react'
 
 export default function SwapModal() {
+  const chainId = useChainId()
+  const [tokens] = useState<Token[]>(baseTokens)
 
-    const chainId = useChainId(); // Get chain ID directly from wagmi
-
-    //map the chain ID to the chain
-    const chain = chainConfigs[chainId];
-
-
-    //use the chain to get the tokenlist
-    const tokens = getTokensByChain(chain.id);
-
-
-
-
-
-
+  if (chainId !== 8453) {
+    return (
+      <div className="flex flex-col gap-4 p-4 text-center">
+        <p>Please switch to Base chain</p>
+      </div>
+    )
+  }
 
   return (
     <div className="flex flex-col gap-4">
@@ -49,5 +46,5 @@ export default function SwapModal() {
         <SwapToast />
       </Swap>
     </div>
-  );
+  )
 }

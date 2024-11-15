@@ -1,5 +1,5 @@
 import { getDefaultWallets } from '@rainbow-me/rainbowkit';
-import { arbitrum, base, mainnet, optimism } from 'viem/chains';
+import { base } from 'viem/chains';
 import { http, createConfig } from 'wagmi';
 
 const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID as string;
@@ -12,15 +12,12 @@ const { connectors } = getDefaultWallets({
   projectId,
 });
 
-const chains = [base, optimism, arbitrum, mainnet] as const;
+const chains = [base] as const;
 
 export const config = createConfig({
   chains,
   transports: {
     [base.id]: http(),
-    [optimism.id]: http(),
-    [arbitrum.id]: http(),
-    [mainnet.id]: http(),
   },
   connectors,
 });
