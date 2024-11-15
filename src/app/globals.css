@@ -6,22 +6,21 @@
   .standard-card {
     @apply bg-card/70 backdrop-blur-sm border-[#3EB8B3]/20 transition-all duration-300;
   }
-  
+
   .gradient-text {
     @apply bg-gradient-to-r from-[#3EB8B3] to-blue-500 bg-clip-text text-transparent;
   }
 
   /* Add new grid background component */
   .grid-background {
-    background-image: 
-      linear-gradient(to right, rgba(62, 184, 179, 0.05) 1px, transparent 1px),
+    background-image: linear-gradient(to right, rgba(62, 184, 179, 0.05) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(62, 184, 179, 0.05) 1px, transparent 1px);
     background-size: 40px 40px;
-    mask-image: linear-gradient(to bottom, transparent, #0D111C 10%, #0D111C 90%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #0d111c 10%, #0d111c 90%, transparent);
   }
 
   .grid-background::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: radial-gradient(
@@ -35,7 +34,8 @@
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(1);
       opacity: 0.5;
     }
@@ -51,18 +51,13 @@
   }
 
   .shine-effect::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba(255, 255, 255, 0.1),
-      transparent
-    );
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
     transform: rotate(45deg);
     animation: shine 6s infinite linear;
     pointer-events: none;
@@ -136,12 +131,12 @@
 
 @layer base {
   :root {
-    --primary: 62 184 179;    /* #3EB8B3 Teal */
-    --card: 17 24 39;         /* gray-900 */
+    --primary: 62 184 179; /* #3EB8B3 Teal */
+    --card: 17 24 39; /* gray-900 */
     --text-primary: 255 255 255;
     --border-color: rgba(62, 184, 179, 0.2); /* Primary teal with opacity */
-    --background: #0D111C;
-    --input-background: #131A2A;
+    --background: #0d111c;
+    --input-background: #131a2a;
   }
 }
 
@@ -155,7 +150,12 @@ body {
   @apply text-white/90 antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @apply font-bold;
 }
 
@@ -175,7 +175,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-onchainkit-swap-input]:hover {
-  border-color: #3EB8B3 !important;
+  border-color: #3eb8b3 !important;
 }
 
 [data-onchainkit-swap-input] input {
@@ -192,7 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-onchainkit-swap-button] {
-  background: linear-gradient(to right, #3EB8B3, #4F46E5) !important;
+  background: linear-gradient(to right, #3eb8b3, #4f46e5) !important;
   color: var(--text-primary) !important;
   border-radius: 12px !important;
   width: 100% !important;
@@ -219,14 +219,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-onchainkit-swap-toggle]:hover {
-  border-color: #3EB8B3 !important;
+  border-color: #3eb8b3 !important;
   transform: scale(1.05) !important;
 }
 
 [data-onchainkit-swap-toggle] svg {
   width: 16px !important;
   height: 16px !important;
-  color: #3EB8B3 !important;
+  color: #3eb8b3 !important;
 }
 
 .swap-balance {
@@ -243,4 +243,3 @@ h1, h2, h3, h4, h5, h6 {
   padding: 6px 12px !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
 }
-  

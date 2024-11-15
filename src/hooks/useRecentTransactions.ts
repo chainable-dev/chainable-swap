@@ -25,7 +25,6 @@ export function useRecentTransactions() {
           hash,
           description,
         });
-
       } catch (error) {
         console.error('Failed to track transaction:', error);
       }
@@ -34,4 +33,4 @@ export function useRecentTransactions() {
   );
 
   return { trackTransaction };
-} 
+}

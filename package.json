@@ -10,11 +10,15 @@
     "ci:lint": "biome ci --formatter-enabled=false --organize-imports-enabled=false",
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "format": "biome format --write .",
-    "lint": "biome lint --write .",
+    "lint": "biome check --apply .",
+    "lint:fix": "biome check --fix --unsafe .",
     "lint:unsafe": "biome lint --write --unsafe .",
     "start": "next start",
-    "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:images": "vitest run src/__tests__/token-images.test.ts",
+    "test:watch": "vitest watch",
+    "download-icons": "ts-node --project scripts/tsconfig.json scripts/download-token-icons.ts"
   },
   "dependencies": {
     "@coinbase/onchainkit": "^0.33.6",
@@ -39,26 +43,27 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.0",
-    "@testing-library/jest-dom": "^6.4.6",
-    "@testing-library/react": "^14.2.0",
     "@types/node": "^20.11.8",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.7",
-    "@types/testing-library__jest-dom": "^6.0.0",
+    "@types/sharp": "^0.31.1",
     "@vitest/coverage-v8": "^2.0.2",
     "@vitest/ui": "^2.0.1",
-    "@wagmi/cli": "latest",
     "autoprefixer": "^10.4.19",
+    "axios": "^1.7.7",
     "bufferutil": "^4.0.7",
     "encoding": "^0.1.13",
+    "glob": "^10.4.5",
     "jsdom": "^24.1.0",
     "lokijs": "^1.5.12",
     "pino-pretty": "^10.2.0",
     "postcss": "^8.4.38",
+    "sharp": "^0.33.5",
     "supports-color": "^9.4.0",
     "tailwindcss": "^3.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
     "utf-8-validate": "^6.0.3",
-    "vitest": "^2.0.1"
+    "vitest": "^2.1.4"
   }
 }

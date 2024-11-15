@@ -1,36 +1,28 @@
 'use client';
-import { OnchainKitProvider } from '@coinbase/onchainkit';
+
+import { config } from '@/config/wagmi';
 import { RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import type { ReactNode } from 'react';
-import { base } from 'viem/chains';
 import { WagmiProvider } from 'wagmi';
-import { NEXT_PUBLIC_CDP_API_KEY } from '../config';
-import { useWagmiConfig } from '../wagmi';
 
-type Props = { children: ReactNode };
+interface Props {
+  children: React.ReactNode;
+}
 
 const queryClient = new QueryClient();
 
-function OnchainProviders({ children }: Props) {
-  const wagmiConfig = useWagmiConfig();
-
+export function OnchainProviders({ children }: Props) {
   return (
-    //@ts-ignore
-    <WagmiProvider config={wagmiConfig}>
+    //@ts-ignore - wagmi types are not compatible with the latest version
+    <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <OnchainKitProvider apiKey={NEXT_PUBLIC_CDP_API_KEY} chain={base}>
-          <RainbowKitProvider 
-            theme={darkTheme({
-              borderRadius: 'medium',
-              accentColor: '#3EB8B3',
-              overlayBlur: 'small'
-            })} 
-            modalSize="wide"
-          >
-            {children}
-          </RainbowKitProvider>
-        </OnchainKitProvider>
+        <RainbowKitProvider
+          theme={darkTheme({
+            accentColor: '#3EB8B3',
+          })}
+        >
+          {children}
+        </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );
