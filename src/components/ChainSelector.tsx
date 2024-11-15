@@ -86,7 +86,7 @@ export function ChainSelector({ selectedChain, onChainSelect, className = "" }: 
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild={true}>
         <Button variant="outline" className={`flex items-center gap-2 ${className}`}>
           <Image 
             src={currentChain.logo}

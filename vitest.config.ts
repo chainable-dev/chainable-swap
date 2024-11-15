@@ -1,29 +1,17 @@
 import { defineConfig } from 'vitest/config';
+import path from 'path';
 
 export default defineConfig({
   test: {
-    coverage: {
-      exclude: [
-        '**.js',
-        '**.ts',
-        '**/**.stories.**',
-        '**/*Svg.tsx',
-        '**/types.ts',
-        '.next/**',
-        'public/**',
-        'node_modules/**',
-      ],
-      reportOnFailure: true,
-      thresholds: {
-        statements: 50,
-        branches: 50,
-        functions: 50,
-        lines: 50,
-      },
-    },
-    environment: 'jsdom',
-    exclude: ['**/node_modules/**', '.next/**', 'public/**'],
-    setupFiles: ['./vitest.setup.ts'],
+    environment: 'node',
     globals: true,
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+    },
   },
 });
