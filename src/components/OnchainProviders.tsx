@@ -13,6 +13,7 @@ const queryClient = new QueryClient();
 
 export function OnchainProviders({ children }: Props) {
   return (
+    //@ts-ignore - wagmi types are not compatible with the latest version
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider
