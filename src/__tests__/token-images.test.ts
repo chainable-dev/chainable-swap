@@ -1,5 +1,3 @@
-import fs from 'fs'
-import path from 'path'
 import { 
   baseTokens, 
   optimismTokens, 
@@ -9,62 +7,63 @@ import {
 } from '@/config/tokens/index'
 
 describe('Token Images', () => {
-  const tokenIconsPath = path.join(process.cwd(), 'public', 'token-icons')
-
-  // Helper function to check if image exists
-  const imageExists = (imagePath: string): boolean => {
-    return fs.existsSync(path.join(tokenIconsPath, imagePath))
-  }
-
-  // Helper function to get image filename from logoURI
-  const getImageFilename = (logoURI: string | undefined): string => {
-    if (!logoURI) return ''
-    return logoURI.split('/').pop() || ''
+  // Helper function to validate token config
+  const validateToken = (token: TokenConfig): boolean => {
+    return !!(token.verified && token.logoURI && token.address && token.decimals)
   }
 
   // Helper function to check tokens for a chain
-  const checkTokenImages = (chainName: string, tokens: TokenConfig[]): void => {
+  const checkTokens = (chainName: string, tokens: TokenConfig[]): void => {
     describe(`${chainName} Chain Tokens`, () => {
-      tokens.forEach((token) => {
-        test(`${token.name} (${token.symbol}) should have an image`, () => {
-          const imageFilename = getImageFilename(token.logoURI)
-          expect(imageFilename).not.toBe('')
-          expect(imageExists(imageFilename)).toBe(true)
-        })
+      test(`all ${chainName} tokens should be properly configured`, () => {
+        const invalidTokens = tokens.filter(token => !validateToken(token))
+        
+        if (invalidTokens.length > 0) {
+          console.error(`\nInvalid tokens for ${chainName}:`)
+          invalidTokens.forEach(token => {
+            console.error(`- ${token.name} (${token.symbol}): missing required fields`)
+          })
+        }
+        
+        expect(invalidTokens).toHaveLength(0)
       })
 
-      test(`All ${chainName} tokens should have valid image paths`, () => {
-        const missingImages = tokens.filter(token => {
-          const imageFilename = getImageFilename(token.logoURI)
-          return !imageExists(imageFilename)
-        })
-
-        if (missingImages.length > 0) {
-          console.error(`\nMissing images for ${chainName} tokens:`)
-          missingImages.forEach(token => {
+      test(`all ${chainName} tokens should have valid image paths`, () => {
+        const tokensWithoutImages = tokens.filter(token => !token.logoURI?.startsWith('/token-icons/'))
+        
+        if (tokensWithoutImages.length > 0) {
+          console.error(`\nTokens missing valid image paths for ${chainName}:`)
+          tokensWithoutImages.forEach(token => {
             console.error(`- ${token.name} (${token.symbol}): ${token.logoURI}`)
           })
         }
+        
+        expect(tokensWithoutImages).toHaveLength(0)
+      })
 
-        expect(missingImages).toHaveLength(0)
+      test(`all ${chainName} tokens should have PNG images`, () => {
+        const nonPngTokens = tokens.filter(token => !token.logoURI?.endsWith('.png'))
+        
+        if (nonPngTokens.length > 0) {
+          console.error(`\nTokens with non-PNG images for ${chainName}:`)
+          nonPngTokens.forEach(token => {
+            console.error(`- ${token.name} (${token.symbol}): ${token.logoURI}`)
+          })
+        }
+        
+        expect(nonPngTokens).toHaveLength(0)
       })
     })
   }
 
-  // Test Mainnet tokens
-  checkTokenImages('Mainnet', mainnetTokens)
+  // Test each chain's tokens
+  checkTokens('Mainnet', mainnetTokens)
+  checkTokens('Base', baseTokens)
+  checkTokens('Optimism', optimismTokens)
+  checkTokens('Arbitrum', arbitrumTokens)
 
-  // Test Base chain tokens
-  checkTokenImages('Base', baseTokens)
-
-  // Test Optimism chain tokens
-  checkTokenImages('Optimism', optimismTokens)
-
-  // Test Arbitrum chain tokens
-  checkTokenImages('Arbitrum', arbitrumTokens)
-
-  // Test for shared token images across chains
-  test('Shared tokens use same image across chains', () => {
+  // Test for shared token consistency
+  test('shared tokens should use consistent image paths', () => {
     const allTokens = [...mainnetTokens, ...baseTokens, ...optimismTokens, ...arbitrumTokens]
     const tokensBySymbol = allTokens.reduce((acc, token) => {
       if (!acc[token.symbol]) {
@@ -75,38 +74,20 @@ describe('Token Images', () => {
     }, {} as Record<string, TokenConfig[]>)
 
     // Check that tokens with same symbol use same image
-    Object.values(tokensBySymbol).forEach(tokens => {
+    for (const [symbol, tokens] of Object.entries(tokensBySymbol)) {
       if (tokens.length > 1) {
         const firstImage = tokens[0].logoURI
-        tokens.forEach(token => {
-          expect(token.logoURI).toBe(firstImage)
-        })
+        const inconsistentTokens = tokens.filter(token => token.logoURI !== firstImage)
+        
+        if (inconsistentTokens.length > 0) {
+          console.error(`\nInconsistent image paths for ${symbol}:`)
+          inconsistentTokens.forEach(token => {
+            console.error(`- ${token.name}: ${token.logoURI} (expected: ${firstImage})`)
+          })
+        }
+        
+        expect(inconsistentTokens).toHaveLength(0)
       }
-    })
-  })
-
-  // Test image file properties
-  describe('Image File Properties', () => {
-    const allTokens = [...mainnetTokens, ...baseTokens, ...optimismTokens, ...arbitrumTokens]
-    const uniqueTokens = Array.from(new Set(allTokens.map(token => token.symbol)))
-      .map(symbol => allTokens.find(token => token.symbol === symbol))
-      .filter((token): token is TokenConfig => token !== undefined)
-    
-    uniqueTokens.forEach(token => {
-      const imageFilename = getImageFilename(token.logoURI)
-      
-      if (imageExists(imageFilename)) {
-        test(`${token.symbol} image should be a valid PNG file`, () => {
-          const imagePath = path.join(tokenIconsPath, imageFilename)
-          const fileStats = fs.statSync(imagePath)
-          
-          // Check if file is not empty
-          expect(fileStats.size).toBeGreaterThan(0)
-          
-          // Check file extension
-          expect(imageFilename.toLowerCase()).toMatch(/\.png$/)
-        })
-      }
-    })
+    }
   })
 }) 

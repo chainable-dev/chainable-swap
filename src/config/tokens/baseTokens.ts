@@ -1,4 +1,4 @@
-import { type TokenConfig } from './types'
+import type { TokenConfig } from './types'
 
 export const baseTokens: TokenConfig[] = [
   // Native & Stablecoins

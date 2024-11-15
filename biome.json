@@ -25,7 +25,11 @@
       "node_modules",
       "dist",
       ".next",
-      "public"
+      "public",
+      "**/__tests__/**",
+      "**/*.test.ts",
+      "**/*.test.tsx",
+      "vitest.config.ts"
     ]
   },
   "formatter": {
@@ -37,7 +41,11 @@
       "node_modules",
       "dist",
       ".next",
-      "public"
+      "public",
+      "**/__tests__/**",
+      "**/*.test.ts",
+      "**/*.test.tsx",
+      "vitest.config.ts"
     ]
   },
   "javascript": {

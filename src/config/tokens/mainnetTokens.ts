@@ -1,4 +1,4 @@
-import { type TokenConfig } from './types'
+import type { TokenConfig } from './types'
 
 export const mainnetTokens: TokenConfig[] = [
   {
@@ -71,22 +71,6 @@ export const mainnetTokens: TokenConfig[] = [
     address: "0x17A1D8C9de53e54498A7B2DBc9b59102E6E38FeE",
     decimals: 8,
     logoURI: "/token-icons/gala.png",
-    verified: true
-  },
-  {
-    name: "Decentraland",
-    symbol: "MANA",
-    address: "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
-    decimals: 18,
-    logoURI: "/token-icons/mana.png",
-    verified: true
-  },
-  {
-    name: "The Sandbox",
-    symbol: "SAND",
-    address: "0x3845badAde8e6dFF049820680d1F14bD3903a5d0",
-    decimals: 18,
-    logoURI: "/token-icons/sand.png",
     verified: true
   }
 ] 
