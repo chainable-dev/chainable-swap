@@ -1,10 +1,10 @@
 export interface TokenConfig {
+  address: string;
+  decimals: number;
   name: string;
   symbol: string;
-  address: `0x${string}`;
-  decimals: number;
-  logoURI?: string;
-  verified?: boolean;
+  logoURI: string;
+  verified: boolean;
 }
 
 export const CHAIN_IDS = {

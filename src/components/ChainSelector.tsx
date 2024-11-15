@@ -1,110 +1,90 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { Button } from './ui/button';
+import { useChainId, useSwitchChain } from 'wagmi';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from './ui/dropdown-menu';
 import Image from 'next/image';
+import { base, optimism, arbitrum, mainnet } from 'wagmi/chains';
+import { getTokensForChain } from '@/config/chains';
 
-interface Chain {
-  id: number;
-  name: string;
-  logo: string;
-  nativeCurrency: {
-    name: string;
-    symbol: string;
-    decimals: 18;
-  };
-}
+const SUPPORTED_CHAINS = [
+  {
+    ...base,
+    iconUrl: '/chain-logos/base.svg',
+    tokens: getTokensForChain(base.id)
+  },
+  {
+    ...optimism,
+    iconUrl: '/chain-logos/optimism.svg',
+    tokens: getTokensForChain(optimism.id)
+  },
+  {
+    ...arbitrum,
+    iconUrl: '/chain-logos/arbitrum.svg',
+    tokens: getTokensForChain(arbitrum.id)
+  },
+  {
+    ...mainnet,
+    iconUrl: '/chain-logos/ethereum.svg',
+    tokens: getTokensForChain(mainnet.id)
+  }
+] as const;
 
-const chains: Chain[] = [
-  {
-    id: 8453,
-    name: 'Base',
-    logo: '/chain-logos/base.svg',
-    nativeCurrency: {
-      name: 'Ethereum',
-      symbol: 'ETH',
-      decimals: 18,
-    },
-  },
-  {
-    id: 42161,
-    name: 'Arbitrum One',
-    logo: '/chain-logos/arbitrum.svg',
-    nativeCurrency: {
-      name: 'Ethereum',
-      symbol: 'ETH',
-      decimals: 18,
-    },
-  },
-  {
-    id: 10,
-    name: 'Optimism',
-    logo: '/chain-logos/optimism.svg',
-    nativeCurrency: {
-      name: 'Ethereum',
-      symbol: 'ETH',
-      decimals: 18,
-    },
-  },
-  {
-    id: 137,
-    name: 'Polygon',
-    logo: '/chain-logos/polygon.svg',
-    nativeCurrency: {
-      name: 'MATIC',
-      symbol: 'MATIC',
-      decimals: 18,
-    },
-  },
-  {
-    id: 56,
-    name: 'BNB Chain',
-    logo: '/chain-logos/bnb.svg',
-    nativeCurrency: {
-      name: 'BNB',
-      symbol: 'BNB',
-      decimals: 18,
-    },
-  },
-];
+export function ChainSelector() {
+  const chainId = useChainId();
+  const { switchChain, isPending } = useSwitchChain();
 
-interface ChainSelectorProps {
-  selectedChain: number;
-  onChainSelect: (chainId: number) => void;
-  className?: string;
-}
-
-export default function ChainSelector({
-  selectedChain,
-  onChainSelect,
-  className = '',
-}: ChainSelectorProps) {
-  const currentChain = chains.find((chain) => chain.id === selectedChain) || chains[0];
+  const currentChain = SUPPORTED_CHAINS.find(c => c.id === chainId) ?? SUPPORTED_CHAINS[0];
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild={true}>
-        <Button variant="outline" className={`flex items-center gap-2 ${className}`}>
-          <Image src={currentChain.logo} alt={currentChain.name} width={24} height={24} />
+      <DropdownMenuTrigger asChild>
+        <Button 
+          variant="ghost" 
+          className="flex items-center gap-2 px-3 py-2 rounded-full"
+          disabled={isPending}
+        >
+          <div className="relative w-5 h-5">
+            <Image
+              src={currentChain.iconUrl}
+              alt={currentChain.name}
+              width={20}
+              height={20}
+              className="object-contain"
+            />
+          </div>
           {currentChain.name}
+          {isPending && <span className="ml-2">...</span>}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        {chains.map((chain) => (
+      <DropdownMenuContent align="end" className="w-48">
+        {SUPPORTED_CHAINS.map((chain) => (
           <DropdownMenuItem
             key={chain.id}
-            onClick={() => onChainSelect(chain.id)}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => switchChain?.({ chainId: chain.id })}
+            disabled={chain.id === chainId}
           >
-            <Image src={chain.logo} alt={chain.name} width={24} height={24} />
-            {chain.name}
+            <div className="relative w-5 h-5">
+              <Image
+                src={chain.iconUrl}
+                alt={chain.name}
+                width={20}
+                height={20}
+                className="object-contain"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span>{chain.name}</span>
+              <span className="text-xs text-muted-foreground">
+                {chain.tokens.length} tokens available
+              </span>
+            </div>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

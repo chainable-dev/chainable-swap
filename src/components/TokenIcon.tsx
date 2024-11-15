@@ -1,33 +1,22 @@
 'use client';
 
 import Image from 'next/image';
-import type { StaticImageData } from 'next/image';
-import { useState } from 'react';
+import type { TokenConfig } from '@/types/types';
 
 interface TokenIconProps {
-  src: string | StaticImageData;
-  alt: string;
-  size?: number;
+  token: TokenConfig;
+  className?: string;
 }
 
-export const TokenIcon = ({ src, alt, size = 48 }: TokenIconProps) => {
-  const [error, setError] = useState(false);
-
+export function TokenIcon({ token, className = "w-5 h-5" }: TokenIconProps) {
   return (
-    <div className="relative" style={{ width: size, height: size }}>
-      {/* @ts-ignore */}
+    <div className={`relative ${className}`}>
       <Image
-        src={error ? '/token-icons/default.png' : src}
-        alt={alt}
-        width={size}
-        height={size}
-        className="rounded-full"
-        priority={false}
-        onError={() => setError(true)}
-        loading="lazy"
+        src={token.logoURI || `/token-icons/${token.symbol.toLowerCase()}.png`}
+        alt={token.symbol}
+        fill
+        className="object-contain"
       />
     </div>
   );
-};
-
-export default TokenIcon;
+}

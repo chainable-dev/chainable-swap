@@ -1,45 +1,35 @@
 'use client';
 
+import '@rainbow-me/rainbowkit/styles.css';
+import {
+  RainbowKitProvider,
+  getDefaultConfig,
+} from '@rainbow-me/rainbowkit';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider } from 'wagmi';
-import { RainbowKitProvider, darkTheme } from '@rainbow-me/rainbowkit';
-import { config } from '@/config/wagmi';
-import { Disclaimer } from './Disclaimer';
+import { base } from 'wagmi/chains';
 
-interface Props {
-  children: React.ReactNode;
+if (!process.env.NEXT_PUBLIC_WC_PROJECT_ID) {
+  throw new Error('NEXT_PUBLIC_WC_PROJECT_ID is not defined');
 }
 
-// Create QueryClient instance outside component to prevent recreation
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 5000,
-      refetchOnWindowFocus: false,
-    },
-  },
+const config = getDefaultConfig({
+  appName: 'Chainable',
+  projectId: process.env.NEXT_PUBLIC_WC_PROJECT_ID,
+  chains: [base],
+  ssr: true,
 });
 
-export function OnchainProviders({ children }: Props) {
+const queryClient = new QueryClient();
+
+export function OnchainProviders({ children }: { children: React.ReactNode }) {
   return (
-    //@ts-ignore - wagmi types are not compatible with the latest version
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider
-          appInfo={{
-            appName: 'Chainable',
-            disclaimer: Disclaimer,
-          }}
-          theme={darkTheme({
-            accentColor: '#3EB8B3',
-          })}
-          showRecentTransactions={true}
-        >
+        <RainbowKitProvider>
           {children}
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );
 }
-
-export default OnchainProviders;
