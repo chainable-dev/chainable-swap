@@ -10,7 +10,15 @@ interface Props {
   children: React.ReactNode;
 }
 
-const queryClient = new QueryClient();
+// Create QueryClient instance outside component to prevent recreation
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5000,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export function OnchainProviders({ children }: Props) {
   return (
@@ -25,6 +33,7 @@ export function OnchainProviders({ children }: Props) {
           theme={darkTheme({
             accentColor: '#3EB8B3',
           })}
+          showRecentTransactions={true}
         >
           {children}
         </RainbowKitProvider>
