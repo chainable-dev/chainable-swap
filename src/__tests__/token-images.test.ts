@@ -1,9 +1,9 @@
 import { 
-  baseTokens, 
-  optimismTokens, 
+  type TokenConfig, 
   arbitrumTokens,
+  baseTokens, 
   mainnetTokens,
-  type TokenConfig 
+  optimismTokens 
 } from '@/config/tokens/index'
 
 describe('Token Images', () => {

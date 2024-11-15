@@ -1,5 +1,5 @@
-import { type TokenConfig } from '@/config/tokens/types'
+import type { TokenConfig } from '@/types/types';
 
 export const validateTokens = (tokens: TokenConfig[]): TokenConfig[] => {
-  return tokens.filter(token => token.verified && token.logoURI)
-} 
+  return tokens.filter((token) => token.verified && token.logoURI);
+};

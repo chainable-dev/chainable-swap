@@ -1,19 +1,21 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-import { useState } from 'react'
+import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
+import { useState } from 'react';
 
 interface TokenIconProps {
-  src: string
-  alt: string
-  size?: number
+  src: string | StaticImageData;
+  alt: string;
+  size?: number;
 }
 
-export function TokenIcon({ src, alt, size = 48 }: TokenIconProps) {
-  const [error, setError] = useState(false)
-  
+export const TokenIcon = ({ src, alt, size = 48 }: TokenIconProps) => {
+  const [error, setError] = useState(false);
+
   return (
     <div className="relative" style={{ width: size, height: size }}>
+      {/* @ts-ignore */}
       <Image
         src={error ? '/token-icons/default.png' : src}
         alt={alt}
@@ -25,5 +27,7 @@ export function TokenIcon({ src, alt, size = 48 }: TokenIconProps) {
         loading="lazy"
       />
     </div>
-  )
-} 
+  );
+};
+
+export default TokenIcon;

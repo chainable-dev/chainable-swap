@@ -1,18 +1,18 @@
-import { http, createConfig } from 'wagmi'
-import { base, optimism, arbitrum } from 'viem/chains'
-import { getDefaultWallets } from '@rainbow-me/rainbowkit'
+import { getDefaultWallets } from '@rainbow-me/rainbowkit';
+import { arbitrum, base, mainnet, optimism } from 'viem/chains';
+import { http, createConfig } from 'wagmi';
 
-const projectId = process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID as string
+const projectId = process.env.NEXT_PUBLIC_WC_PROJECT_ID as string;
 if (!projectId) {
-  throw new Error('Missing NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID')
+  throw new Error('Missing NEXT_PUBLIC_WC_PROJECT_ID');
 }
 
 const { connectors } = getDefaultWallets({
   appName: 'Chainable Swap',
-  projectId
-})
+  projectId,
+});
 
-const chains = [base, optimism, arbitrum] as const
+const chains = [base, optimism, arbitrum, mainnet] as const;
 
 export const config = createConfig({
   chains,
@@ -20,8 +20,9 @@ export const config = createConfig({
     [base.id]: http(),
     [optimism.id]: http(),
     [arbitrum.id]: http(),
+    [mainnet.id]: http(),
   },
-  connectors
-})
+  connectors,
+});
 
-export { chains } 
+export { chains };
