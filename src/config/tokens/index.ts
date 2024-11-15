@@ -4,11 +4,11 @@ export * from './baseTokens';
 export * from './optimismTokens';
 export * from './arbitrumTokens';
 
+import { CHAIN_IDS, type TokenConfig } from '../../types/types';
 import { arbitrumTokens } from './arbitrumTokens';
 import { baseTokens } from './baseTokens';
 import { mainnetTokens } from './mainnetTokens';
 import { optimismTokens } from './optimismTokens';
-import { CHAIN_IDS, type TokenConfig } from '../../types/types';
 
 // Helper function to validate tokens
 const validateTokens = (tokens: TokenConfig[]): TokenConfig[] => {

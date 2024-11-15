@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer';
+import LoginButton from '@/components/LoginButton';
 import { Swapper } from '@/components/Swapper';
 import { CHAINABLE_LINK } from '@/constants/links';
-import LoginButton from '@/components/LoginButton';
 
 export default function Home() {
   return (
