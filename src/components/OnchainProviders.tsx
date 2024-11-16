@@ -31,7 +31,9 @@ function OnchainProviders({ children }: Props) {
             theme={
               darkTheme()
             }
+            
             showRecentTransactions={true}
+            
 
           >
             {children}
