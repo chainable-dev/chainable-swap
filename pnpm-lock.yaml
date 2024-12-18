@@ -37,7 +37,7 @@ importers:
         version: 2.1.1
       next:
         specifier: ^14.2.5
-        version: 14.2.17(@babel/core@7.26.0(supports-color@9.4.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 14.2.20(@babel/core@7.26.0(supports-color@9.4.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       permissionless:
         specifier: ^0.1.26
         version: 0.1.46(viem@2.21.42(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@6.0.5)(zod@3.23.8))
@@ -89,7 +89,7 @@ importers:
         version: 2.1.4(vitest@2.1.4)
       '@wagmi/cli':
         specifier: latest
-        version: 2.1.17(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@6.0.5)
+        version: 2.1.22(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@6.0.5)
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.20(postcss@8.4.47)
@@ -1403,59 +1403,59 @@ packages:
     resolution: {integrity: sha512-z10PF9JV6SbjFq+/rYabM+8CVlMokgl8RFGvieSGNTmrkQanfHn+15XBrhG3BgUfvmTeSeyShfOHpG0i9zEdcg==}
     deprecated: Motion One for Vue is deprecated. Use Oku Motion instead https://oku-ui.com/motion
 
-  '@next/env@14.2.17':
-    resolution: {integrity: sha512-MCgO7VHxXo8sYR/0z+sk9fGyJJU636JyRmkjc7ZJY8Hurl8df35qG5hoAh5KMs75FLjhlEo9bb2LGe89Y/scDA==}
+  '@next/env@14.2.20':
+    resolution: {integrity: sha512-JfDpuOCB0UBKlEgEy/H6qcBSzHimn/YWjUHzKl1jMeUO+QVRdzmTTl8gFJaNO87c8DXmVKhFCtwxQ9acqB3+Pw==}
 
-  '@next/swc-darwin-arm64@14.2.17':
-    resolution: {integrity: sha512-WiOf5nElPknrhRMTipXYTJcUz7+8IAjOYw3vXzj3BYRcVY0hRHKWgTgQ5439EvzQyHEko77XK+yN9x9OJ0oOog==}
+  '@next/swc-darwin-arm64@14.2.20':
+    resolution: {integrity: sha512-WDfq7bmROa5cIlk6ZNonNdVhKmbCv38XteVFYsxea1vDJt3SnYGgxLGMTXQNfs5OkFvAhmfKKrwe7Y0Hs+rWOg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@next/swc-darwin-x64@14.2.17':
-    resolution: {integrity: sha512-29y425wYnL17cvtxrDQWC3CkXe/oRrdt8ie61S03VrpwpPRI0XsnTvtKO06XCisK4alaMnZlf8riwZIbJTaSHQ==}
+  '@next/swc-darwin-x64@14.2.20':
+    resolution: {integrity: sha512-XIQlC+NAmJPfa2hruLvr1H1QJJeqOTDV+v7tl/jIdoFvqhoihvSNykLU/G6NMgoeo+e/H7p/VeWSOvMUHKtTIg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-linux-arm64-gnu@14.2.17':
-    resolution: {integrity: sha512-SSHLZls3ZwNEHsc+d0ynKS+7Af0Nr8+KTUBAy9pm6xz9SHkJ/TeuEg6W3cbbcMSh6j4ITvrjv3Oi8n27VR+IPw==}
+  '@next/swc-linux-arm64-gnu@14.2.20':
+    resolution: {integrity: sha512-pnzBrHTPXIMm5QX3QC8XeMkpVuoAYOmyfsO4VlPn+0NrHraNuWjdhe+3xLq01xR++iCvX+uoeZmJDKcOxI201Q==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-arm64-musl@14.2.17':
-    resolution: {integrity: sha512-VFge37us5LNPatB4F7iYeuGs9Dprqe4ZkW7lOEJM91r+Wf8EIdViWHLpIwfdDXinvCdLl6b4VyLpEBwpkctJHA==}
+  '@next/swc-linux-arm64-musl@14.2.20':
+    resolution: {integrity: sha512-WhJJAFpi6yqmUx1momewSdcm/iRXFQS0HU2qlUGlGE/+98eu7JWLD5AAaP/tkK1mudS/rH2f9E3WCEF2iYDydQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-x64-gnu@14.2.17':
-    resolution: {integrity: sha512-aaQlpxUVb9RZ41adlTYVQ3xvYEfBPUC8+6rDgmQ/0l7SvK8S1YNJzPmDPX6a4t0jLtIoNk7j+nroS/pB4nx7vQ==}
+  '@next/swc-linux-x64-gnu@14.2.20':
+    resolution: {integrity: sha512-ao5HCbw9+iG1Kxm8XsGa3X174Ahn17mSYBQlY6VGsdsYDAbz/ZP13wSLfvlYoIDn1Ger6uYA+yt/3Y9KTIupRg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-linux-x64-musl@14.2.17':
-    resolution: {integrity: sha512-HSyEiFaEY3ay5iATDqEup5WAfrhMATNJm8dYx3ZxL+e9eKv10XKZCwtZByDoLST7CyBmyDz+OFJL1wigyXeaoA==}
+  '@next/swc-linux-x64-musl@14.2.20':
+    resolution: {integrity: sha512-CXm/kpnltKTT7945np6Td3w7shj/92TMRPyI/VvveFe8+YE+/YOJ5hyAWK5rpx711XO1jBCgXl211TWaxOtkaA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-win32-arm64-msvc@14.2.17':
-    resolution: {integrity: sha512-h5qM9Btqv87eYH8ArrnLoAHLyi79oPTP2vlGNSg4CDvUiXgi7l0+5KuEGp5pJoMhjuv9ChRdm7mRlUUACeBt4w==}
+  '@next/swc-win32-arm64-msvc@14.2.20':
+    resolution: {integrity: sha512-upJn2HGQgKNDbXVfIgmqT2BN8f3z/mX8ddoyi1I565FHbfowVK5pnMEwauvLvaJf4iijvuKq3kw/b6E9oIVRWA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@next/swc-win32-ia32-msvc@14.2.17':
-    resolution: {integrity: sha512-BD/G++GKSLexQjdyoEUgyo5nClU7er5rK0sE+HlEqnldJSm96CIr/+YOTT063LVTT/dUOeQsNgp5DXr86/K7/A==}
+  '@next/swc-win32-ia32-msvc@14.2.20':
+    resolution: {integrity: sha512-igQW/JWciTGJwj3G1ipalD2V20Xfx3ywQy17IV0ciOUBbFhNfyU1DILWsTi32c8KmqgIDviUEulW/yPb2FF90w==}
     engines: {node: '>= 10'}
     cpu: [ia32]
     os: [win32]
 
-  '@next/swc-win32-x64-msvc@14.2.17':
-    resolution: {integrity: sha512-vkQfN1+4V4KqDibkW2q0sJ6CxQuXq5l2ma3z0BRcfIqkAMZiiW67T9yCpwqJKP68QghBtPEFjPAlaqe38O6frw==}
+  '@next/swc-win32-x64-msvc@14.2.20':
+    resolution: {integrity: sha512-AFmqeLW6LtxeFTuoB+MXFeM5fm5052i3MU6xD0WzJDOwku6SkZaxb1bxjBaRC8uNqTRTSPl0yMFtjNowIVI67w==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -2313,8 +2313,8 @@ packages:
   '@vitest/utils@2.1.4':
     resolution: {integrity: sha512-MXDnZn0Awl2S86PSNIim5PWXgIAx8CIkzu35mBdSApUip6RFOGXBCf3YFyeEu8n1IHk4bWD46DeYFu9mQlFIRg==}
 
-  '@wagmi/cli@2.1.17':
-    resolution: {integrity: sha512-xnXxFwXkexUhkAevgUBiuYdKpwCpM+V5sdwSaHkjV3RG6pTKFBHywdxj+k6OTtDH9ygb7Xh+Rf4c6q6nJjxpbA==}
+  '@wagmi/cli@2.1.22':
+    resolution: {integrity: sha512-aRXwzNHuCIEKs/mceGiPlDBlhdHxXnndL9avYEXByzpGVw37ZChx5CW1potTA8oTFACJpsSs2aaE7cjrRsmzVA==}
     hasBin: true
     peerDependencies:
       typescript: '>=5.0.4'
@@ -3267,10 +3267,6 @@ packages:
     resolution: {integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==}
     engines: {node: '>=8'}
 
-  find-up@6.3.0:
-    resolution: {integrity: sha512-v2ZsoEuVHYy8ZIlYqwPe/39Cy+cFDzp4dXPaxNvkEuouymu+2Jbz0PxpKarJHYJTmv2HWT3O382qY8l4jMWthw==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
   flatted@3.3.1:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
 
@@ -3871,10 +3867,6 @@ packages:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
     engines: {node: '>=8'}
 
-  locate-path@7.2.0:
-    resolution: {integrity: sha512-gvVijfZvn7R+2qyPX8mAuKcFGDf6Nc61GdvGafQsHL0sBIxfKzA+usWn4GFC/bk+QdwPUD4kWFJLhElipq+0VA==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
 
@@ -4109,6 +4101,9 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanospinner@1.2.2:
+    resolution: {integrity: sha512-Zt/AmG6qRU3e+WnzGGLuMCEAO/dAu45stNbHY223tUxldaDAeE+FxSPsd9Q+j+paejmm0ZbrNVs5Sraqy3dRxA==}
+
   negotiator@0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
@@ -4116,8 +4111,8 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  next@14.2.17:
-    resolution: {integrity: sha512-hNo/Zy701DDO3nzKkPmsLRlDfNCtb1OJxFUvjGEl04u7SFa3zwC6hqsOUzMajcaEOEV8ey1GjvByvrg0Qr5AiQ==}
+  next@14.2.20:
+    resolution: {integrity: sha512-yPvIiWsiyVYqJlSQxwmzMIReXn5HxFNq4+tlVQ812N1FbvhmE+fDpIAD7bcS2mGYQwPJ5vAsQouyme2eKsxaug==}
     engines: {node: '>=18.17.0'}
     hasBin: true
     peerDependencies:
@@ -4278,10 +4273,6 @@ packages:
     resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
     engines: {node: '>=6'}
 
-  p-limit@4.0.0:
-    resolution: {integrity: sha512-5b0R4txpzjPWVw/cXXUResoD4hb6U/x9BH08L7nw+GN1sezDzPdxeRvpc9c433fZhBan/wusjbCsqwqm4EIBIQ==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
   p-locate@3.0.0:
     resolution: {integrity: sha512-x+12w/To+4GFfgJhBEpiDcLozRJGegY+Ei7/z0tSLkMmxGZNybVMSfWj9aJn8Z5Fc7dBUNJOOVgPv2H7IwulSQ==}
     engines: {node: '>=6'}
@@ -4289,10 +4280,6 @@ packages:
   p-locate@4.1.0:
     resolution: {integrity: sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==}
     engines: {node: '>=8'}
-
-  p-locate@6.0.0:
-    resolution: {integrity: sha512-wPrq66Llhl7/4AGC6I+cqxT07LhXvWL08LNXz1fENOw0Ap4sRZZ/gZpTTJ5jpurzzzfS2W/Ge9BY3LgLjCShcw==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   p-try@2.2.0:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
@@ -4319,10 +4306,6 @@ packages:
   path-exists@4.0.0:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==}
     engines: {node: '>=8'}
-
-  path-exists@5.0.0:
-    resolution: {integrity: sha512-RjhtfwJOxzcFmNOi6ltcbcu4Iu+FL3zEj83dk4kAS+fVpTxXLO1b38RvJgT/0QwvV/L3aY9TAnyv0EOqW4GoMQ==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   path-is-absolute@1.0.1:
     resolution: {integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==}
@@ -5601,10 +5584,6 @@ packages:
   yargs@17.7.2:
     resolution: {integrity: sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==}
     engines: {node: '>=12'}
-
-  yocto-queue@1.1.1:
-    resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
-    engines: {node: '>=12.20'}
 
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
@@ -7102,33 +7081,33 @@ snapshots:
       '@motionone/dom': 10.18.0
       tslib: 2.8.1
 
-  '@next/env@14.2.17': {}
+  '@next/env@14.2.20': {}
 
-  '@next/swc-darwin-arm64@14.2.17':
+  '@next/swc-darwin-arm64@14.2.20':
     optional: true
 
-  '@next/swc-darwin-x64@14.2.17':
+  '@next/swc-darwin-x64@14.2.20':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@14.2.17':
+  '@next/swc-linux-arm64-gnu@14.2.20':
     optional: true
 
-  '@next/swc-linux-arm64-musl@14.2.17':
+  '@next/swc-linux-arm64-musl@14.2.20':
     optional: true
 
-  '@next/swc-linux-x64-gnu@14.2.17':
+  '@next/swc-linux-x64-gnu@14.2.20':
     optional: true
 
-  '@next/swc-linux-x64-musl@14.2.17':
+  '@next/swc-linux-x64-musl@14.2.20':
     optional: true
 
-  '@next/swc-win32-arm64-msvc@14.2.17':
+  '@next/swc-win32-arm64-msvc@14.2.20':
     optional: true
 
-  '@next/swc-win32-ia32-msvc@14.2.17':
+  '@next/swc-win32-ia32-msvc@14.2.20':
     optional: true
 
-  '@next/swc-win32-x64-msvc@14.2.17':
+  '@next/swc-win32-x64-msvc@14.2.20':
     optional: true
 
   '@noble/ciphers@1.0.0': {}
@@ -8086,7 +8065,7 @@ snapshots:
       loupe: 3.1.2
       tinyrainbow: 1.2.0
 
-  '@wagmi/cli@2.1.17(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@6.0.5)':
+  '@wagmi/cli@2.1.22(bufferutil@4.0.8)(typescript@5.6.3)(utf-8-validate@6.0.5)':
     dependencies:
       abitype: 1.0.6(typescript@5.6.3)(zod@3.23.8)
       bundle-require: 4.2.1(esbuild@0.19.12)
@@ -8097,11 +8076,9 @@ snapshots:
       dotenv: 16.4.5
       dotenv-expand: 10.0.0
       esbuild: 0.19.12
-      execa: 8.0.1
+      escalade: 3.2.0
       fdir: 6.4.2(picomatch@3.0.1)
-      find-up: 6.3.0
-      fs-extra: 11.2.0
-      ora: 6.3.1
+      nanospinner: 1.2.2
       pathe: 1.1.2
       picocolors: 1.1.1
       picomatch: 3.0.1
@@ -9427,11 +9404,6 @@ snapshots:
       locate-path: 5.0.0
       path-exists: 4.0.0
 
-  find-up@6.3.0:
-    dependencies:
-      locate-path: 7.2.0
-      path-exists: 5.0.0
-
   flatted@3.3.1: {}
 
   flow-enums-runtime@0.0.6: {}
@@ -10092,10 +10064,6 @@ snapshots:
     dependencies:
       p-locate: 4.1.0
 
-  locate-path@7.2.0:
-    dependencies:
-      p-locate: 6.0.0
-
   lodash.debounce@4.0.8: {}
 
   lodash.isequal@4.5.0: {}
@@ -10424,13 +10392,17 @@ snapshots:
 
   nanoid@3.3.7: {}
 
+  nanospinner@1.2.2:
+    dependencies:
+      picocolors: 1.1.1
+
   negotiator@0.6.3: {}
 
   neo-async@2.6.2: {}
 
-  next@14.2.17(@babel/core@7.26.0(supports-color@9.4.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next@14.2.20(@babel/core@7.26.0(supports-color@9.4.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@next/env': 14.2.17
+      '@next/env': 14.2.20
       '@swc/helpers': 0.5.5
       busboy: 1.6.0
       caniuse-lite: 1.0.30001677
@@ -10440,15 +10412,15 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       styled-jsx: 5.1.1(@babel/core@7.26.0(supports-color@9.4.0))(react@18.3.1)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 14.2.17
-      '@next/swc-darwin-x64': 14.2.17
-      '@next/swc-linux-arm64-gnu': 14.2.17
-      '@next/swc-linux-arm64-musl': 14.2.17
-      '@next/swc-linux-x64-gnu': 14.2.17
-      '@next/swc-linux-x64-musl': 14.2.17
-      '@next/swc-win32-arm64-msvc': 14.2.17
-      '@next/swc-win32-ia32-msvc': 14.2.17
-      '@next/swc-win32-x64-msvc': 14.2.17
+      '@next/swc-darwin-arm64': 14.2.20
+      '@next/swc-darwin-x64': 14.2.20
+      '@next/swc-linux-arm64-gnu': 14.2.20
+      '@next/swc-linux-arm64-musl': 14.2.20
+      '@next/swc-linux-x64-gnu': 14.2.20
+      '@next/swc-linux-x64-musl': 14.2.20
+      '@next/swc-win32-arm64-msvc': 14.2.20
+      '@next/swc-win32-ia32-msvc': 14.2.20
+      '@next/swc-win32-x64-msvc': 14.2.20
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
@@ -10586,10 +10558,6 @@ snapshots:
     dependencies:
       p-try: 2.2.0
 
-  p-limit@4.0.0:
-    dependencies:
-      yocto-queue: 1.1.1
-
   p-locate@3.0.0:
     dependencies:
       p-limit: 2.3.0
@@ -10597,10 +10565,6 @@ snapshots:
   p-locate@4.1.0:
     dependencies:
       p-limit: 2.3.0
-
-  p-locate@6.0.0:
-    dependencies:
-      p-limit: 4.0.0
 
   p-try@2.2.0: {}
 
@@ -10620,8 +10584,6 @@ snapshots:
   path-exists@3.0.0: {}
 
   path-exists@4.0.0: {}
-
-  path-exists@5.0.0: {}
 
   path-is-absolute@1.0.1: {}
 
@@ -11953,8 +11915,6 @@ snapshots:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 21.1.1
-
-  yocto-queue@1.1.1: {}
 
   zod@3.23.8: {}
 
